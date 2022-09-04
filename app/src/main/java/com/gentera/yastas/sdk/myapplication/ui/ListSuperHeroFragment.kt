@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -32,6 +31,7 @@ class ListSuperHeroFragment : Fragment(), RvListSuperHero.OnClick {
     private val vmNetwork: VmNetwork by activityViewModels()
     private var startList = 0
     private var endList = 20
+    private var maxItems = 0
     private var isConected = true
     private val vmSuperHero by viewModels<VmNetSuperHero> {
         VmFactory(
@@ -58,10 +58,10 @@ class ListSuperHeroFragment : Fragment(), RvListSuperHero.OnClick {
         binding.rvSuperHero.adapter = RvListSuperHero(listSuperHeros, this)
         adapter = binding.rvSuperHero.adapter as RvListSuperHero
         vmNetwork.getIsConected().observe(viewLifecycleOwner, { statusConnection ->
-            isConected = statusConnection
             if (listSuperHeros.isEmpty()) {
-                getAllSuperHeros()
+                getAllSuperHeros(statusConnection)
             }
+            isConected = statusConnection
         })
 
         setupOnClick()
@@ -81,37 +81,41 @@ class ListSuperHeroFragment : Fragment(), RvListSuperHero.OnClick {
                     val totalItemCount = recyclerView.layoutManager!!.itemCount
                     val pastVisiblesItems =
                         (recyclerView.layoutManager as GridLayoutManager).findFirstVisibleItemPosition()
-                    if (visibleItemCount + pastVisiblesItems >= totalItemCount) {
+                    if (visibleItemCount + pastVisiblesItems >= totalItemCount - 5) {
                         startList += 20
                         endList += 20
-                        getAllSuperHeros()
+                        getAllSuperHeros(isConected)
                     }
                 }
             }
         })
     }
 
-    private fun getAllSuperHeros() {
+    private fun getAllSuperHeros(statusConnection: Boolean) {
         var count = startList
-        if (isConected) {
-            for (i in startList..endList) {
-                vmSuperHero.getSuperHeroId("${Constants.ACCES_TOKEN}/${i + 1}")
-                    .observe(viewLifecycleOwner, { responce ->
-                        when (responce) {
-                            is ResponseStatus.Loaing -> {
+        if (maxItems <= 3) {
+            if (statusConnection) {
+                for (i in startList..endList) {
+                vmSuperHero.getSuperHeroId("${Constants.ACCES_TOKEN}/$i")
+                        .observe(viewLifecycleOwner, { responce ->
+                            when (responce) {
+                                is ResponseStatus.Loaing -> {
+                                }
+                                is ResponseStatus.Success -> {
+                                    if (responce.data.id != "") {
+                                        listSuperHeros.add(responce.data)
+                                        adapter.notifyItemInserted(count)
+                                        count += 1
+                                    } else {
+                                        maxItems += 1
+                                    }
+                                }
+                                is ResponseStatus.Error -> {
+                                }
                             }
-                            is ResponseStatus.Success -> {
-                                listSuperHeros.add(responce.data)
-                                adapter.notifyItemInserted(count)
-                                count += 1
-                            }
-                            is ResponseStatus.Error -> {
-                            }
-                        }
-                    })
+                        })
+                }
             }
-        } else {
-            Toast.makeText(requireContext(), R.string.no_conection, Toast.LENGTH_LONG).show()
         }
     }
 

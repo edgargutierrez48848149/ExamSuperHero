@@ -9,5 +9,6 @@
     <string name="tv_work">Trabajos</string>
     <string name="tv_connections">Conexiones</string>
     <string name="no_conection">Por el momento no ha conexion a internet</string>
+    <string name="max_elements">No hay mas elementos</string>
     <string name="go_to_up">go to up</string>
 </resources>
