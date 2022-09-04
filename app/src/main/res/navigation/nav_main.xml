@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/scheduleMeetingDetailFragment">
+
+    <fragment
+        android:id="@+id/scheduleMeetingDetailFragment"
+        android:name="com.gentera.yastas.sdk.myapplication.ui.ListSuperHeroFragment"
+        android:label="fragment_schedule_meeting_detail"
+        tools:layout="@layout/fragment_list_super_hero" >
+        <action
+            android:id="@+id/action_scheduleMeetingDetailFragment_to_detailSuperHeroFragment"
+            app:destination="@id/detailSuperHeroFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailSuperHeroFragment"
+        android:name="com.gentera.yastas.sdk.myapplication.ui.DetailSuperHeroFragment"
+        android:label="fragment_detail_super_hero"
+        tools:layout="@layout/fragment_detail_super_hero" />
+
+</navigation>

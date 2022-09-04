@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">List Super Hero</string>
+    <string name="btn_see_more">Ver Mas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_stats">Estadisticas</string>
+    <string name="tv_biography">Biografia</string>
+    <string name="tv_appearance">Apariencia</string>
+    <string name="tv_work">Trabajos</string>
+    <string name="tv_connections">Conexiones</string>
+    <string name="no_conection">Por el momento no ha conexion a internet</string>
+    <string name="go_to_up">go to up</string>
+</resources>

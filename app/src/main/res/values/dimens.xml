@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Text size -->
+    <dimen name="title">20sp</dimen>
+    <dimen name="text">14sp</dimen>
+    <!-- Margin Size -->
+    <dimen name="margin_normal">10dp</dimen>
+</resources>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DetailSuperHeroFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivPictureHeader"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/ic_launcher"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPictureHeader">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPictureCircle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvName"
+        style="@style/SuperHeroTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/materialCardView"
+        app:layout_constraintTop_toTopOf="@+id/materialCardView"
+        tools:text="Name Super Hero"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvOcupation"
+        style="@style/SuperHeroText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+        app:layout_constraintStart_toEndOf="@+id/materialCardView"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        tools:text="Work"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Stats -->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SuperHeroTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_stats" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvIntelligence"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Intelligence" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStrength"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Strength" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSpeed"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Speed" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDurability"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Durability" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPower"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Power" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCombat"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Combat" />
+
+            <!-- Biography -->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SuperHeroTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_biography" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFullName"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="FullName" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAlterEgos"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Alter Egos" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAliases"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Aliases" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPlaceOfBirth"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Place Of Birth" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFirstAppearance"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="FirstAppearance" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPublisher"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Publisher" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAlignment"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Alignment" />
+
+            <!-- Appearance -->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SuperHeroTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_appearance" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGender"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Gender" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRace"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Race" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHeight"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Height" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvWeight"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Weight" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEyeColor"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="EyeColor" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHairColor"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="HairColor" />
+
+            <!-- Work-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SuperHeroTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_work" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOccupation"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Occupation"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBase"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Base" />
+
+            <!-- Connections-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SuperHeroTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_connections" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGroupAffiliation"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Group Affiliation" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRelatives"
+                style="@style/SuperHeroText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Relatives"
+                android:layout_marginBottom="@dimen/margin_normal"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text View -->
+    <style name="SuperHeroTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_marginStart">@dimen/margin_normal</item>
+        <item name="android:textSize">@dimen/title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="SuperHeroText" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_marginStart">@dimen/margin_normal</item>
+        <item name="android:textSize">@dimen/text</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>
